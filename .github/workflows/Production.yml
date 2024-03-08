@@ -1,9 +1,9 @@
-name: Nanoc Compile and Upload to Developmnet S3
+name: Nanoc Compile and Upload to Production S3
 
 on:
   push:
     branches:
-      - develop
+      - main
 
 env:
   AWS_REGION : "us-east-1"   
