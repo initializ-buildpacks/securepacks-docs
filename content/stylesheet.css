@@ -243,7 +243,6 @@ a:hover {
 }
 
 #sidebar h2 {
-  overflow-y: auto;
   background: linear-gradient(to right, #761830, #261960);
   -webkit-background-clip: text;
   background-clip: text;
