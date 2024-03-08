@@ -1,0 +1,421 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+}
+
+html,body{
+  height: 100%;
+  width: 100%;
+}
+
+#rightsidebar .active {
+  color: #ce4da4; /* Change this to your desired highlight color */
+  font-weight: 600;
+  font-size: 15px; /* Add any additional styling for highlighting */
+}
+
+/* Add this CSS for the header */
+header {
+  background: linear-gradient(to right, #761830, #261960);
+  padding: 2px;
+  text-align: left;
+  position: fixed;
+  width: 100%;
+  z-index: 1000; /* Set a high z-index to ensure it's above other elements */
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.part-a {
+  flex-grow: 1;
+  width: fit-content;
+  padding-left: 20px;
+  /* Set width for part-a if needed */
+}
+
+.part-b {
+  width: fit-content;
+  padding-right: 30px;
+  /* Set width for part-b if needed */
+}
+
+.nav-links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links ul li a {
+  color: white;
+}
+
+
+.nav-links ul li {
+  display: inline-block;
+  margin-left: 20px; /* Adjust as needed */
+}
+
+.nav-links ul li:first-child {
+  margin-left: 0;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 255, 0.2);
+  background-color: rgba(173, 216, 230, 0.2);
+}
+img.ignore {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: 0; /* Remove bottom margin */
+  padding: 0; /* Remove padding */
+  box-shadow: none; /* Remove box shadow */
+  background-color: transparent; /* Remove background color */
+}
+
+body {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff;
+}
+
+#wrapper {
+  flex: 1;
+}
+
+.footer {
+  margin-top: 100px;
+  width: 100%;
+  text-align: center;
+  top: 2px;
+  padding: 5px;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.footer::before {
+  content: "";
+  display: block;
+  height: 10px;
+  top: 2px;
+}
+
+.copyright-text {
+  margin: 0;
+}
+
+.heart {
+  display: inline-block;
+  color: red;
+  margin: 0 5px;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  background: linear-gradient(to right, #761830, #261960);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+a:hover {
+  background: linear-gradient(to right, #761830, #261960);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+#main {
+  margin-top: 60px; /* Adjusted margin-top to account for the header height */
+  max-width: 60%;
+  padding-top: 3%;
+  padding-bottom: 5%;
+  left: 20%;
+  position: relative; /* Ensure proper stacking context */
+}
+
+#main h1 {
+  background: linear-gradient(to right, #761830, #261960);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 40px;
+  letter-spacing: -1px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+#main p {
+  margin: 20px 0;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+#main ul,
+#main ol {
+  margin: 20px;
+}
+
+#main li {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+#main ul li {
+  list-style-type: square;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    padding: 10px; /* Adjust padding for small screens */
+  }
+
+  nav ul {
+    padding-left: 0; /* Adjust padding for small screens */
+  }
+
+  nav li {
+    display: block;
+    padding-left: 0;
+    margin-bottom: 10px; /* Add spacing between nav items for small screens */
+  }
+
+  nav li.logo {
+    padding-right: 0;
+    margin: 0; /* Add spacing for the logo for small screens */
+  }
+
+  #main {
+    margin-top: 20px; /* Adjusted margin-top for small screens */
+    max-width: 90%;
+    left: 5%;
+  }
+
+  #sidebar {
+    top: 3%; /* Adjusted top position for small screens */
+  }
+
+  #rightsidebar {
+    top: 3%; /* Adjusted top position for small screens */
+  }
+}
+
+#sidebar a.highlight {
+  color: #13111a; /* Change this to your desired highlight color */
+  font-weight: bold; /* You can customize the style further */
+}
+
+#sidebar {
+  position: fixed;
+  overflow-y: auto;
+  height: 90vh;
+  width: 17%;
+  z-index: 1;
+  top: 10%;
+  padding: 17px 17px 0;
+  border-right: 3px solid #ce4da4;
+  text-align: left;
+}
+
+#sidebar h2 {
+  overflow-y: auto;
+  background: linear-gradient(to right, #761830, #261960);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 10px;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 2px;
+  line-height: 30px;
+}
+
+#sidebar ul {
+  font-size: large;
+  list-style-type: none; /* Remove default list style type */
+  padding: 0;
+  margin: 0;
+  padding-top: 7px;
+}
+
+#sidebar ul > li {
+  font-size: large;
+  margin-left: 20px;
+  margin-bottom: 20px; /* Adjust spacing between list items */
+  position: relative;
+}
+
+#sidebar ul > li ul {
+  margin-top: 20px; /* Adjust spacing between parent and child items */
+}
+
+#sidebar ul > li ul li {
+  margin-bottom: 20px; /* Adjust spacing between child items */
+}
+
+/* Apply background color change to active items */
+#sidebar details.passive.active {
+  background-color: #b1e6f3;
+}
+
+[open] summary.passive::after {
+  content: none;
+}
+
+summary {
+  position: relative;
+  color: #7353e5;
+}
+
+summary::marker {
+  content: none;
+}
+
+summary::before,
+summary::after {
+  content: "";
+}
+
+summary::before,
+summary::after {
+  width: 0.75em;
+  height: 0;
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+/* Show arrow for all summary elements */
+summary::after {
+  content: url("../assets/dropdown-arrow-svgrepo-com.svg");
+  display: inline-block;
+  margin-left: 5px;
+  color: #7353e5;
+}
+
+/* Hide arrow for summary elements within details that are opened */
+details[open] summary::after {
+  content: url("../assets/dropdown-arrow-svgrepo-com.svg");
+  display: inline-block;
+  margin-left: 5px;
+  color: #7353e5;
+}
+
+
+
+
+
+details.passive summary::marker {
+  content: none;
+}
+
+details.passive summary::before,
+details.passive summary::after {
+  content: none;
+}
+
+
+details li,
+summary li {
+  margin-left: 3%;
+  font-size: 15px;
+  line-height: 15px;
+}
+
+#rightsidebar {
+  background: linear-gradient(to right, #761830, #261960);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: fixed;
+  width: 12%;
+  z-index: 1;
+  top: 10%;
+  right: 1%;
+  padding: 1% 1% 0% 1%;
+  border-left: 2px solid #ce4da4;
+  text-align: left;
+}
+
+#rightsidebar h2 {
+  margin: 10px;
+  margin-left: 5px;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 2px;
+  line-height: 20px;
+}
+
+#rightsidebar ul {
+  list-style-type: none;
+  margin: 20px 0;
+  padding: 3px;
+}
+
+#rightsidebar li {
+  font-size: 13px;
+  line-height: 20px;
+  padding: 3px;
+}
+
+@media screen and (max-width: 1180px) {
+  #sidebar {
+    display: none;
+  }
+
+  #main {
+    left: 5%;
+    max-width: 90%;
+  }
+
+  #rightsidebar {
+    display: none;
+  }
+}
+
+/* Thin scrollbar for webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff; /* Color of the scrollbar */
+  border-radius: 1px; /* Rounded corners */
+}
+
+/* Thin scrollbar for Firefox */
+/* Note: Firefox does not support styling the scrollbar directly, 
+   but you can adjust the scrollbar width using this workaround */
+* {
+  scrollbar-width:thin;
+  scrollbar-color: #823131 #f1f1f1; /* Color of the scrollbar thumb and track */
+}

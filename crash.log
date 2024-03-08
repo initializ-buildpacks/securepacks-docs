@@ -1,0 +1,265 @@
+Crash log created at 2024-03-07 10:26:47 +0530
+
+===== MESSAGE:
+
+SyntaxError: /Users/kushagra_cdhry/Desktop/docs-main2/Rules:30: syntax error, unexpected `end', expecting end-of-input
+
+/Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-4.12.18/lib/nanoc/rule_dsl/rules_loader.rb:26:in `instance_eval': /Users/kushagra_cdhry/Desktop/docs-main2/Rules:30: syntax error, unexpected `end', expecting end-of-input (SyntaxError)
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-4.12.18/lib/nanoc/rule_dsl/rules_loader.rb:26:in `parse'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-4.12.18/lib/nanoc/rule_dsl/rules_loader.rb:15:in `load'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-4.12.18/lib/nanoc/rule_dsl/action_provider.rb:20:in `for'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-core-4.12.18/lib/nanoc/core/compiler_loader.rb:18:in `load'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-core-4.12.18/lib/nanoc/core/compiler.rb:15:in `new_for'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/commands/compile.rb:38:in `run_once'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/commands/compile.rb:23:in `run'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/command_runner.rb:15:in `block in call'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/error_handler.rb:57:in `handle_while'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/error_handler.rb:15:in `handle_while'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/command_runner.rb:14:in `call'
+	from /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/cri-2.15.11/lib/cri/command_dsl.rb:294:in `block in runner'
+	from /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/cri-2.15.11/lib/cri/command.rb:362:in `run_this'
+	from /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/cri-2.15.11/lib/cri/command.rb:298:in `run'
+	from /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/cri-2.15.11/lib/cri/command.rb:316:in `run'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli.rb:88:in `block in run'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/error_handler.rb:57:in `handle_while'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/error_handler.rb:15:in `handle_while'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli.rb:86:in `run'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-4.12.18/bin/nanoc:18:in `<top (required)>'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/bin/nanoc:23:in `load'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/bin/nanoc:23:in `<main>'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/bin/ruby_executable_hooks:22:in `eval'
+	from /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/bin/ruby_executable_hooks:22:in `<main>'
+
+===== STACK TRACE:
+
+  0. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-4.12.18/lib/nanoc/rule_dsl/rules_loader.rb:26:in `instance_eval'
+  1. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-4.12.18/lib/nanoc/rule_dsl/rules_loader.rb:26:in `parse'
+  2. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-4.12.18/lib/nanoc/rule_dsl/rules_loader.rb:15:in `load'
+  3. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-4.12.18/lib/nanoc/rule_dsl/action_provider.rb:20:in `for'
+  4. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-core-4.12.18/lib/nanoc/core/compiler_loader.rb:18:in `load'
+  5. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-core-4.12.18/lib/nanoc/core/compiler.rb:15:in `new_for'
+  6. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/commands/compile.rb:38:in `run_once'
+  7. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/commands/compile.rb:23:in `run'
+  8. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/command_runner.rb:15:in `block in call'
+  9. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/error_handler.rb:57:in `handle_while'
+  10. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/error_handler.rb:15:in `handle_while'
+  11. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/command_runner.rb:14:in `call'
+  12. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/cri-2.15.11/lib/cri/command_dsl.rb:294:in `block in runner'
+  13. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/cri-2.15.11/lib/cri/command.rb:362:in `run_this'
+  14. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/cri-2.15.11/lib/cri/command.rb:298:in `run'
+  15. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/cri-2.15.11/lib/cri/command.rb:316:in `run'
+  16. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli.rb:88:in `block in run'
+  17. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/error_handler.rb:57:in `handle_while'
+  18. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli/error_handler.rb:15:in `handle_while'
+  19. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib/nanoc/cli.rb:86:in `run'
+  20. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-4.12.18/bin/nanoc:18:in `<top (required)>'
+  21. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/bin/nanoc:23:in `load'
+  22. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/bin/nanoc:23:in `<main>'
+  23. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/bin/ruby_executable_hooks:22:in `eval'
+
+===== VERSION INFORMATION:
+
+Nanoc 4.12.18 © 2007–… Denis Defreyne.
+Running ruby 3.0.0 (2020-12-25) on arm64-darwin23 with RubyGems 3.2.3.
+
+===== SYSTEM INFORMATION:
+
+Darwin Kushagras-Air.bbrouter 23.3.0 Darwin Kernel Version 23.3.0: Wed Dec 20 21:30:27 PST 2023; root:xnu-10002.81.5~7/RELEASE_ARM64_T8103 arm64
+
+===== INSTALLED GEMS:
+
+  addressable 2.8.5
+  adsf 1.5.0
+  bundler 2.5.6
+  colored 1.2
+  concurrent-ruby 1.2.2
+  cri 2.15.11
+  ddmetrics 1.1.0
+  ddplugin 1.0.3
+  diff-lcs 1.5.0
+  immutable-ruby 0.1.0
+  json_schema 0.21.0
+  kramdown 2.4.0
+  memo_wise 1.8.0
+  nanoc 4.12.18
+  nanoc-checking 1.0.2
+  nanoc-cli 4.12.18
+  nanoc-core 4.12.18
+  nanoc-deploying 1.0.2
+  nokogiri 1.16.2
+  parallel 1.23.0
+  pastel 0.8.0
+  psych 4.0.6
+  public_suffix 5.0.3
+  racc 1.7.3
+  rack 3.0.9
+  rackup 2.1.0
+  rbtree 0.4.6
+  rexml 3.2.6
+  set 1.0.3
+  slow_enumerator_tools 1.1.0
+  sorted_set 1.0.3
+  stringio 3.0.4
+  tty-color 0.6.0
+  tty-command 0.10.1
+  tty-platform 0.3.0
+  tty-which 0.5.0
+  webrick 1.8.1
+  zeitwerk 2.6.12
+
+===== GEMFILE.LOCK:
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.8.5)
+      public_suffix (>= 2.0.2, < 6.0)
+    adsf (1.5.0)
+      rack (>= 1.0.0, < 4.0.0)
+      rackup (~> 2.1)
+    colored (1.2)
+    concurrent-ruby (1.2.2)
+    cri (2.15.11)
+    ddmetrics (1.1.0)
+    ddplugin (1.0.3)
+    diff-lcs (1.5.0)
+    immutable-ruby (0.1.0)
+      concurrent-ruby (~> 1.1)
+      sorted_set (~> 1.0)
+    json_schema (0.21.0)
+    kramdown (2.4.0)
+      rexml
+    memo_wise (1.8.0)
+    mini_portile2 (2.8.5)
+    nanoc (4.12.18)
+      addressable (~> 2.5)
+      colored (~> 1.2)
+      nanoc-checking (~> 1.0, >= 1.0.2)
+      nanoc-cli (= 4.12.18)
+      nanoc-core (= 4.12.18)
+      nanoc-deploying (~> 1.0)
+      parallel (~> 1.12)
+      tty-command (~> 0.8)
+      tty-which (~> 0.4)
+    nanoc-checking (1.0.2)
+      nanoc-cli (~> 4.12, >= 4.12.4)
+      nanoc-core (~> 4.12, >= 4.12.4)
+    nanoc-cli (4.12.18)
+      cri (~> 2.15)
+      diff-lcs (~> 1.3)
+      nanoc-core (= 4.12.18)
+      zeitwerk (~> 2.1)
+    nanoc-core (4.12.18)
+      concurrent-ruby (~> 1.1)
+      ddmetrics (~> 1.0)
+      ddplugin (~> 1.0)
+      immutable-ruby (~> 0.1)
+      json_schema (~> 0.19)
+      memo_wise (~> 1.5)
+      psych (~> 4.0)
+      slow_enumerator_tools (~> 1.0)
+      tty-platform (~> 0.2)
+      zeitwerk (~> 2.1)
+    nanoc-deploying (1.0.2)
+      nanoc-checking (~> 1.0)
+      nanoc-cli (~> 4.11, >= 4.11.15)
+      nanoc-core (~> 4.11, >= 4.11.15)
+    nokogiri (1.16.2)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
+    nokogiri (1.16.2-arm64-darwin)
+      racc (~> 1.4)
+    parallel (1.23.0)
+    pastel (0.8.0)
+      tty-color (~> 0.5)
+    psych (4.0.6)
+      stringio
+    public_suffix (5.0.3)
+    racc (1.7.3)
+    rack (3.0.9)
+    rackup (2.1.0)
+      rack (>= 3)
+      webrick (~> 1.8)
+    rbtree (0.4.6)
+    rexml (3.2.6)
+    set (1.0.3)
+    slow_enumerator_tools (1.1.0)
+    sorted_set (1.0.3)
+      rbtree
+      set (~> 1.0)
+    stringio (3.0.4)
+    tty-color (0.6.0)
+    tty-command (0.10.1)
+      pastel (~> 0.8)
+    tty-platform (0.3.0)
+    tty-which (0.5.0)
+    webrick (1.8.1)
+    zeitwerk (2.6.12)
+
+PLATFORMS
+  arm64-darwin-23
+  x64-unknown
+
+DEPENDENCIES
+  adsf
+  kramdown
+  nanoc (~> 4.12)
+  nokogiri
+
+BUNDLED WITH
+   2.5.6
+
+===== LOAD PATHS:
+
+  0. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/executable-hooks-1.7.1/lib
+  1. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/bundler-unload-1.0.2/lib
+  2. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/bundler-2.5.6/lib
+  3. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/nokogiri-1.16.2-arm64-darwin/lib
+  4. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/racc-1.7.3/lib
+  5. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/extensions/arm64-darwin-23/3.0.0/racc-1.7.3
+  6. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-4.12.18/lib
+  7. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/tty-which-0.5.0/lib
+  8. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/tty-command-0.10.1/lib
+  9. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/pastel-0.8.0/lib
+  10. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/tty-color-0.6.0/lib
+  11. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/parallel-1.23.0/lib
+  12. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/nanoc-deploying-1.0.2/lib
+  13. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/nanoc-checking-1.0.2/lib
+  14. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-cli-4.12.18/lib
+  15. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/nanoc-core-4.12.18/lib
+  16. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/zeitwerk-2.6.12/lib
+  17. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/tty-platform-0.3.0/lib
+  18. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/slow_enumerator_tools-1.1.0/lib
+  19. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/psych-4.0.6/lib
+  20. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/extensions/arm64-darwin-23/3.0.0/psych-4.0.6
+  21. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/stringio-3.0.4/lib
+  22. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/extensions/arm64-darwin-23/3.0.0/stringio-3.0.4
+  23. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/memo_wise-1.8.0/lib
+  24. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/kramdown-2.4.0/lib
+  25. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/rexml-3.2.6/lib
+  26. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/json_schema-0.21.0/lib
+  27. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/immutable-ruby-0.1.0/lib
+  28. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/sorted_set-1.0.3/lib
+  29. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/set-1.0.3/lib
+  30. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/rbtree-0.4.6/lib
+  31. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/extensions/arm64-darwin-23/3.0.0/rbtree-0.4.6
+  32. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/diff-lcs-1.5.0/lib
+  33. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/ddplugin-1.0.3/lib
+  34. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/ddmetrics-1.1.0/lib
+  35. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/cri-2.15.11/lib
+  36. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/concurrent-ruby-1.2.2/lib/concurrent-ruby
+  37. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/colored-1.2/lib
+  38. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/adsf-1.5.0/lib
+  39. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/rackup-2.1.0/lib
+  40. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/webrick-1.8.1/lib
+  41. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/rack-3.0.9/lib
+  42. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/addressable-2.8.5/lib
+  43. /Users/kushagra_cdhry/.rvm/gems/ruby-3.0.0/gems/public_suffix-5.0.3/lib
+  44. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/site_ruby/3.0.0
+  45. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/site_ruby/3.0.0/arm64-darwin23
+  46. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/site_ruby
+  47. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/vendor_ruby/3.0.0
+  48. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/vendor_ruby/3.0.0/arm64-darwin23
+  49. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/vendor_ruby
+  50. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0
+  51. /Users/kushagra_cdhry/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0/arm64-darwin23
