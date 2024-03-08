@@ -1,0 +1,150 @@
+---
+title: "Getting Started: Initializ Documentation"
+description: "Get started by exploring our features and resources."
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Platform Documentation</title>
+    <link rel="stylesheet" href="/stylesheet.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      a {
+        background: linear-gradient(to right, #761830, #261960);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: white;
+      }
+
+      #tabs {
+        width: 100%;
+        margin: 2rem 0;
+        overflow: hidden;
+      }
+
+      #tabs menu {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+      }
+
+      #tabs button {
+        font: inherit;
+        font-size: 0.85rem;
+        background-color: #282f33;
+        border: none;
+        border-bottom-color: #f3e248;
+        color: #e0eff1;
+        border-radius: 4px 4px 0 0;
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+      }
+
+      #tabs button:hover,
+      #tabs button.active {
+        background-color: #f3e248;
+        color: #273133;
+      }
+
+      #tab-content {
+        background-color: rgb(196, 214, 223);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 0 4px 4px 4px;
+        padding: 1rem;
+      }
+
+      #tab-content li {
+        margin: 0.75rem 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Getting Started</h1>
+    <h2>Get started by exploring our features and resources.</h2>
+    <div id="tabs">
+      <menu>
+        <button id="button1" class="active">Buildpack</button>
+        <button id="button2">Builder</button>
+        <button id="button3">Pack CLI</button>
+        <button id="button4">Button4</button>
+      </menu>
+      <div id="tab-content"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script>
+  const tabContents = {
+  button1: `<h2>What is a Buildpack?</h2>
+            <li>A buildpack is a set of tools and configurations that automatically create a container image for an application along with its runtime environment.</li>
+            <h2>Workflow</h2>
+
+<ol type="1">
+  <li>
+    <strong>Detection:</strong> Buildpacks analyze the application source code to detect its language, framework, and dependencies.
+  </li>
+  <li>
+    <strong>Dependency Resolution:</strong> Buildpacks resolve and install the required dependencies, libraries, and runtime components.
+  </li>
+  <li>
+    <strong>Build:</strong> Buildpacks compile, build, and package the application code into a container image, incorporating all necessary components and configurations.
+  </li>
+</ol>`,
+  button2: `<h3>Content for Button 2</h3>
+            <p>This is the content for Button 2.</p>
+            <p>It can span multiple lines as needed.</p>`,
+  button3: `<h3>Sample Code Snippet in Bash</h3>
+            <pre><code class="language-bash">
+#!/bin/bash
+
+# A simple Bash script to greet the user
+echo "Hello, world!"
+            </code></pre>`,
+  button4: `<h3>Content for Button 4</h3>
+            <p>This is the content for Button 4.</p>
+            <p>It can span multiple lines as needed.</p>`,
+};
+
+const tabContent = document.getElementById("tab-content");
+    const buttons = document.querySelectorAll("#tabs button");
+
+    function displayContent(content) {
+      tabContent.innerHTML = content;
+      Prism.highlightAll(); // Highlight code syntax
+    }
+
+    function handleClick(event) {
+      const btnId = event.target.id;
+      displayContent(tabContents[btnId]);
+      highlightButton(event.target);
+    }
+
+    function highlightButton(btn) {
+      buttons.forEach(button => {
+        button.classList.remove('active');
+      });
+      btn.classList.add('active');
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener("click", handleClick);
+    });
+
+</script>
+
+  </body>
+</html>
+
+
