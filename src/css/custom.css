@@ -72,13 +72,16 @@
   );
 }
 /* header */
-.head { 
+[data-theme="dark"] .head { 
   background-image: linear-gradient(270deg, #7353e5 0%, #ce4da4 100%);
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-size: 40px;
 }
-.head_title{
+.head{
+  font-size: 40px;
+}
+[data-theme="dark"] .head_title{
   color: #89d85d;
 }
 .hero__content{
@@ -190,7 +193,7 @@
   width: 50%;
 }
 
-.section__title {
+[data-theme="dark"] .section__title {
  color: #8a79ff;
 }
 
@@ -241,6 +244,7 @@
   width: 60px;
   height: 40px;
   margin-right: 20px;
+  color: #89d85d;
 }
 
 
@@ -258,7 +262,7 @@
 
 /* videosection */
 
-.video_head{
+[data-theme="dark"] .video_head{
   color: #8a79ff;
 }
 
