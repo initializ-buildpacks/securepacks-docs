@@ -8,8 +8,8 @@ const HeroSection = () => {
   return (
     <section id="hero" className="hero">
       <div className="hero__content">
-        <h1 style={{fontFamily:'"poppins",sans-serif'}}>Secure Your Deployments with SecurePack</h1>
-        <p className="">SecurePack is a powerful buildpack solution that enhances the security and reliability of your application deployments.</p>
+        <h1 style={{fontFamily:'"poppins",sans-serif'}} className='head'>Secure Your Deployments with SecurePack</h1>
+        <p className="head_title">SecurePack is a powerful buildpack solution that enhances the security and reliability of your application deployments.</p>
         <Link className="hero__button button button--primary" to="/docs/introduction">Explore Documentation</Link>
       </div>
     </section>
