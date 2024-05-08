@@ -6,7 +6,7 @@ const config: Config = {
   title: 'Securepacks Documentation',
   tagline: 'Minimum Complexcity, Maximum Security',
   favicon: 'img/logo_new.png',
-
+  
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -28,7 +28,7 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  scripts: ['custom.js'],
   presets: [
     [
       'classic',
@@ -121,7 +121,10 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()}, Made with
+      ❤️
+      by
+      initializ inc.`,
     },
     prism: {
       theme: prismThemes.oceanicNext,
@@ -129,5 +132,6 @@ const config: Config = {
     },
   } satisfies Preset.ThemeConfig,
 };
+
 
 export default config;

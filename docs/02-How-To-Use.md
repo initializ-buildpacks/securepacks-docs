@@ -1,8 +1,11 @@
 ---
-title: "Getting Started"
+title: "How to Use"
 description: "this is hello"
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 ---
-Getting Started
+How to Use
 =======================
 ### Getting Started with Securepacks 
 
@@ -38,10 +41,28 @@ cd samples/java
 ```
 
 3. Build the app using pack: 
-```
-pack build securepack-java-app --builder initializbuildpacks/initzbuilder-securepacks
-```
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs defaultValue="tab1" groupId="tabs-example">
+
+  <TabItem value="tab1" label="Sample Builder">
+    ```
+    hello
+    ```    
+  </TabItem>
+  <TabItem value="tab2" label="Securepack">
+      ```
+    hello securepack
+    ```   
+  </TabItem>
+</Tabs>
+
+
+<div id="dialog" style="display:none;">
+  hello
+</div>
 
 Note: The first build might take longer than usual due to initialization. Subsequent builds will leverage caching. 
 
@@ -51,6 +72,10 @@ Congratulations! You now have a runnable app image named myapp available on your
 
 To locally test your new app image, run it with Docker: 
 
+
+
+
+<!--END_DOCUSAURUS_CODE_TABS-->
 ```
 docker run -it --rm -p 8080:8080 securepack-java-app
 ```

@@ -39,7 +39,7 @@ const FeaturesSection = () => {
               <polyline points="20 6 9 17 4 12" />
             </svg>
             </span>
-            <p>Secure your deployments with advanced security features</p>
+            <p>Securepacks are platform-agnostic and can be used with various programming languages.</p>
           </div>
           <div className="feature">
           <span className='tick'>
@@ -59,7 +59,7 @@ const FeaturesSection = () => {
               <polyline points="20 6 9 17 4 12" />
             </svg>
             </span>
-            <p>Easy deployment and integration with your existing workflows</p>
+            <p>Modular components that can be easily customized.</p>
           </div>
           <div className="feature">
           <span className='tick'>
@@ -78,7 +78,7 @@ const FeaturesSection = () => {
               <polyline points="20 6 9 17 4 12" />
             </svg>
             </span>
-            <p>Compatibility with a wide range of platforms and environments</p>
+            <p>Automatically detect and install dependencies required by an application.</p>
           </div>
           <div className="feature">
             <span className='tick'>
@@ -97,7 +97,7 @@ const FeaturesSection = () => {
               <polyline points="20 6 9 17 4 12" />
             </svg>
             </span>
-            <p>Secure your deployments with advanced security features</p>
+            <p>Include security features such as vulnerability scanning and dependency verification.</p>
           </div>
           <div className="feature">
           <span className='tick'>
@@ -117,7 +117,7 @@ const FeaturesSection = () => {
               <polyline points="20 6 9 17 4 12" />
             </svg>
             </span>
-            <p>Easy deployment and integration with your existing workflows</p>
+            <p>Designed for cloud-native environments, securepacks enable seamless deployment and scaling</p>
           </div>
           <div className="feature">
           <span className='tick'>
