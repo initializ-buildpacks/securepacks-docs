@@ -28,7 +28,6 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  scripts: ['custom.js'],
   presets: [
     [
       'classic',

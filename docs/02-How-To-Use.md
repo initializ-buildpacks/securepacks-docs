@@ -2,8 +2,6 @@
 title: "How to Use"
 description: "this is hello"
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 ---
 How to Use
 =======================
@@ -46,7 +44,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs defaultValue="tab1" groupId="tabs-example">
-
   <TabItem value="tab1" label="Sample Builder">
     ```
     hello
@@ -60,9 +57,6 @@ import TabItem from '@theme/TabItem';
 </Tabs>
 
 
-<div id="dialog" style="display:none;">
-  hello
-</div>
 
 Note: The first build might take longer than usual due to initialization. Subsequent builds will leverage caching. 
 
