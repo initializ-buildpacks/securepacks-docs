@@ -40,22 +40,10 @@ cd samples/java
 
 3. Build the app using pack: 
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# My Page
+import Dialog from '/src/components/Dialog.tsx';
 
-<Tabs defaultValue="tab1" groupId="tabs-example">
-  <TabItem value="tab1" label="Sample Builder">
-    ```
-    hello
-    ```    
-  </TabItem>
-  <TabItem value="tab2" label="Securepack">
-      ```
-    hello securepack
-    ```   
-  </TabItem>
-</Tabs>
-
+<Dialog />
 
 
 Note: The first build might take longer than usual due to initialization. Subsequent builds will leverage caching. 
