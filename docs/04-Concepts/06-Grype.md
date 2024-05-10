@@ -1,4 +1,4 @@
-### Analyzing Vulnerabilities with Grype 
+### Analyzing Vulnerabilities with [Grype ](https://github.com/anchore/grype/) 
 
 In the ever-evolving landscape of cybersecurity, proactive threat mitigation is paramount to safeguarding containerized workloads. Enter Grype, a powerful vulnerability scanner designed to analyze container images and identify potential security risks. 
 

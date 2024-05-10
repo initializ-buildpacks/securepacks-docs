@@ -40,7 +40,7 @@ cd samples/java
 
 3. Build the app using pack: 
 
-# My Page
+
 import Dialog from '/src/components/Dialog.tsx';
 
 <Dialog />
