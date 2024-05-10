@@ -41,6 +41,10 @@ function SimpleDialog(props: SimpleDialogProps) {
     });
   };
 
+  
+    
+
+
 
   return (
     <Dialog onClose={handleClose} open={open}>
