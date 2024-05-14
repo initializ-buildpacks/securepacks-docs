@@ -117,16 +117,7 @@ Enable restarting the server process when files change using the `BP_LIVE_RELOAD
  
 ```bash
 pack build myapp --env BP_LIVE_RELOAD_ENABLED=true
-```
- 
-### Install a Custom CA Certificate
- 
-Provide custom CA certificates(link) to be included in the container root truststore at build-time and runtime.
- 
-### Override the Start Process Set by the Buildpack
- 
-Set custom start processes for the app image.
-   
+```    
 ### Enable DEBUG logging
  
 Access extra debug logs during the image build process by setting the `BP_LOG_LEVEL` environment variable to DEBUG at build time.
