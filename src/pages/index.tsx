@@ -3,6 +3,8 @@ import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Language from './language';
 import Video from './Video';
+import Dialog1 from '../components/Dialog';
+
  
 const HeroSection = () => {
   return (
@@ -10,7 +12,7 @@ const HeroSection = () => {
       <div className="hero__content">
         <h1 style={{fontFamily:'"poppins",sans-serif'}} className='head'>Secure Your Deployments with SecurePack</h1>
         <p className="head_title">SecurePack is a powerful buildpack solution that enhances the security and reliability of your application deployments.</p>
-        <Link className="hero__button button button--primary" to="/docs/introduction">Explore Documentation</Link>
+        <Dialog1/>
       </div>
     </section>
   );

@@ -3,12 +3,14 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Dialog from '@mui/material/Dialog';
 import CodeBlock from '@theme/CodeBlock';
-import { CircularProgress, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
+import { Button, CircularProgress, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
 import './style.css';
+import { useHistory } from 'react-router-dom'
+
 
 function Dialog1() {
   const [open, setOpen] = useState(false);
-  const [loading, setLoading] = React.useState<boolean>(false);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: '',
     phone: '',
@@ -16,7 +18,8 @@ function Dialog1() {
     source: '',
   });
 
-  const [buttonText, setButtonText] = useState('For using our builder');
+  
+  const history = useHistory();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -27,34 +30,31 @@ function Dialog1() {
   };
 
   const handleSubmit = async (event) => {
-  event.preventDefault();
-  setLoading(true);
+    event.preventDefault();
+    setLoading(true);
 
-  try {
-    const response = await fetch('https://securepacks-docs.onrender.com/submit-form', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(form),
-    });
+    try {
+      const response = await fetch('https://securepacks-docs.onrender.com/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
 
-    if (response.ok) {
-      setLoading(false);
-      console.log('Form submitted successfully');
-      
-      setButtonText('pack build my-app --builder initializbuildpacks/go-securepack ');
-
-        // Close the dialog after successful form submission
+      if (response.ok) {
+        setLoading(false);
+        console.log('Form submitted successfully');
         handleClose();
-    } else {
-      console.error('Failed to submit form');
-    }
-  } catch (error) {
-    console.error('Error submitting form:', error);
-  }
-};
+        history.push('/docs/introduction');
 
+      } else {
+        console.error('Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
 
   const handleChange = (event) => {
     setForm({
@@ -62,20 +62,11 @@ function Dialog1() {
       [event.target.name]: event.target.value,
     });
   };
+
   return (
     <>
-      <Tabs defaultValue="tab1" groupId="tabs-example">
-        <TabItem value="tab1" label="Sample Builder">
-          <CodeBlock className="language-tsx">pack build my-app --builder samplebuilder</CodeBlock>
-        </TabItem>
-        <TabItem value="tab2" label="Securepack">
-          <CodeBlock className="language-tsx">
-            <span onClick={handleClickOpen} style={{ cursor: 'pointer', color: '#d2934c' }}>
-              {buttonText}
-            </span>
-          </CodeBlock>
-        </TabItem>
-      </Tabs>
+      {/* This is the button/link that should open the dialog */}
+      <Button onClick={handleClickOpen} sx={{backgroundColor: "primary"}}>Explore Documentation</Button>
       <Dialog open={open} onClose={handleClose}>
         <div className="form-container">
           <div className="header">
@@ -87,10 +78,6 @@ function Dialog1() {
               <label>Name *</label>
               <input name="name" value={form.name} onChange={handleChange} placeholder="Enter your name" required />
             </div>
-            {/* <div className="input-group">
-              <label>Phone</label>
-              <input name="phone" value={form.phone} onChange={handleChange} placeholder="Enter your phone number" />
-            </div> */}
             <div className="input-group">
               <label htmlFor="email">Email</label>
               <input
@@ -112,7 +99,6 @@ function Dialog1() {
               >
                 Source *
               </label>
-
               <select name="source" value={form.source} onChange={handleChange} required className="custom-select">
                 <option value="">Select an option</option>
                 <option value="google">Google</option>
@@ -120,19 +106,17 @@ function Dialog1() {
                 <option value="other">Other</option>
               </select>
             </div>
-
             <div className="submit-btn">
-              <button type="submit"> {loading ?
-              
-              (   <>  
-              <CircularProgress
-                                    size="1.2rem"
-                                    color="secondary"
-                                    style={{ marginRight: "5px" }}
-                                />
-                                Submitting
-                                </>  ):"Submit"}</button>
-              
+              <button type="submit">
+                {loading ? (
+                  <>
+                    <CircularProgress size="1.2rem" color="secondary" style={{ marginRight: '5px' }} />
+                    Submitting
+                  </>
+                ) : (
+                  'Submit'
+                )}
+              </button>
             </div>
           </form>
         </div>
