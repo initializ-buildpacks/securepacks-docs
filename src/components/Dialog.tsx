@@ -70,8 +70,8 @@ function Dialog1() {
       <Dialog open={open} onClose={handleClose}>
         <div className="form-container">
           <div className="header">
-            <h1>Feedback Form</h1>
-            <p>We value your feedback. Please fill out the form below.</p>
+            <h1>Welcome Form</h1>
+            <p>Lets onboard with us. Please fill out the form below.</p>
           </div>
           <form onSubmit={handleSubmit}>
             <div className="input-group">
