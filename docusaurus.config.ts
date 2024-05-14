@@ -68,13 +68,13 @@ const config: Config = {
         src: 'img/logo_new.png',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
-        {to: '/blog', label: 'Blog', position: 'left'},
+      //   {
+      //     type: 'docSidebar',
+      //     sidebarId: 'tutorialSidebar',
+      //     position: 'left',
+      //     label: 'Tutorial',
+      //   },
+        {to: '/blog', label: 'Blog', position: 'right'},
         {
           href: 'https://github.com/initializ-buildpacks/go',
           label: 'GitHub',
@@ -85,15 +85,15 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/introduction',
-            },
-          ],
-        },
+        // {
+        //   title: 'Docs',
+        //   items: [
+        //     {
+        //       label: 'Tutorial',
+        //       to: '/docs/introduction',
+        //     },
+        //   ],
+        // },
         {
           title: 'Community',
           items: [
