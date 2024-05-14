@@ -14,9 +14,6 @@ function Dialog1() {
     phone: '',
     email: '',
     source: '',
-    other: '',
-    organization: '',
-    purpose: '',
   });
 
   const handleClickOpen = () => {

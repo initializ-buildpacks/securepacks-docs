@@ -20,35 +20,36 @@ AWS.config.update({
 
 // Create S3 instance
 const s3 = new AWS.S3();
+const bucketName = 'securepacksbetacustomers';
+const objectKey = 'data.json'; // Key of the JSON object in the S3 bucket
 
 app.use(bodyParser.json());
 
 // Endpoint to handle form submission
-app.post('/submit-form', (req, res) => {
+app.post('/submit-form', async (req, res) => {
   const formData = req.body;
 
-  // Generate a unique filename
-  const fileName = `form-${uuid.v4()}.json`;
+  try {
+    // Fetch existing JSON object from S3 bucket
+    const existingData = await s3.getObject({ Bucket: bucketName, Key: objectKey }).promise();
+    const existingJson = JSON.parse(existingData.Body.toString('utf-8'));
 
-  // Convert form data to JSON string
-  const jsonData = JSON.stringify(formData);
 
-  // S3 parameters
-  const params = {
-    Bucket: 'betacustomers',
-    Key: fileName,
-    Body: jsonData
-  };
+    // Merge new form data into existing JSON object
+    const updatedJson = { ...existingJson, [uuid.v4()]: formData };
+    // Upload updated JSON object back to S3 bucket
+    await s3.upload({
+      Bucket: bucketName,
+      Key: objectKey,
+      Body: JSON.stringify(updatedJson),
+      ContentType: 'application/json'
+    }).promise();
 
-  // Upload data to S3 bucket
-  s3.upload(params, (err, data) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({ error: 'Error uploading file to S3' });
-    }
-    console.log('File uploaded successfully:', data.Location);
-    return res.status(200).json({ message: 'Form data submitted successfully' });
-  });
+    res.status(200).json({ message: 'Form data submitted and merged successfully' });
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    res.status(500).json({ error: 'Failed to submit form' });
+  }
 });
 
 // Start the server
