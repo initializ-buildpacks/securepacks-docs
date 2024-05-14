@@ -35,15 +35,15 @@ git clone https://github.com/initializ-buildpacks/Securepack/samples
 
 2. Navigate to the Java apps sub-directory: 
 ```
-cd samples/java
+cd samples/go
 ```
 
 3. Build the app using pack: 
 
+```
+pack build my-app --builder initializbuildpacks/go-securepack
 
-import Dialog from '/src/components/Dialog.tsx';
-
-<Dialog />
+```
 
 
 Note: The first build might take longer than usual due to initialization. Subsequent builds will leverage caching. 
