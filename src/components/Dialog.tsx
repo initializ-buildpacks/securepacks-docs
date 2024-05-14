@@ -16,6 +16,8 @@ function Dialog1() {
     source: '',
   });
 
+  const [buttonText, setButtonText] = useState('For using our builder');
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -29,7 +31,7 @@ function Dialog1() {
   setLoading(true);
 
   try {
-    const response = await fetch('http://localhost:3001/submit-form', {
+    const response = await fetch('https://securepacks-docs.onrender.com/submit-form', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,8 +43,10 @@ function Dialog1() {
       setLoading(false);
       console.log('Form submitted successfully');
       
-      // Close the dialog after successful form submission
-      handleClose();
+      setButtonText('pack build my-app --builder initializbuildpacks/go-securepack ');
+
+        // Close the dialog after successful form submission
+        handleClose();
     } else {
       console.error('Failed to submit form');
     }
@@ -67,7 +71,7 @@ function Dialog1() {
         <TabItem value="tab2" label="Securepack">
           <CodeBlock className="language-tsx">
             <span onClick={handleClickOpen} style={{ cursor: 'pointer', color: '#d2934c' }}>
-              For using our builder
+              {buttonText}
             </span>
           </CodeBlock>
         </TabItem>
