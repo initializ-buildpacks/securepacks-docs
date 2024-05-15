@@ -75,11 +75,11 @@ const config: Config = {
       //     label: 'Tutorial',
       //   },
         {to: '/blog', label: 'Blog', position: 'right'},
-        {
-          href: 'https://github.com/initializ-buildpacks/go',
-          label: 'GitHub',
-          position: 'right',
-        },
+        // {
+        //   href: 'https://github.com/initializ-buildpacks/go',
+        //   label: 'GitHub',
+        //   position: 'right',
+        // },
       ],
     },
     footer: {

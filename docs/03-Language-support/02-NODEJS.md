@@ -16,7 +16,7 @@ pack build my-app --buildpack initializbuildpacks/nodejs \
  
 Check out the Readme in folder for instructions on running the app.
 ```
-docker run --interactive --tty --init --publish 8080:8080 npm-sample
+docker run --interactive --tty --init --publish 8080:8080 my-app
 ``` 
 ### Install a Specific Node Engine Version
  

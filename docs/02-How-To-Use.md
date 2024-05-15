@@ -25,7 +25,7 @@ To kickstart your journey, ensure you have Docker and the pack CLI tool installe
 
 Before diving in, let's ensure you understand the fundamentals of Securepacks and their mechanics. Now, let's witness everything in action using pack build. 
 
-Execute the following commands in your shell to clone and build a simple Java app: 
+Execute the following commands in your shell to clone and build a simple go app: 
 
 1.  Clone the samples repository: 
 
@@ -59,7 +59,7 @@ To locally test your new app image, run it with Docker:
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 ```
-docker run -it --rm -p 8080:8080 securepack-java-app
+docker run -it -p 8080:8080 my-app
 ```
 
 You should see the following output: 
