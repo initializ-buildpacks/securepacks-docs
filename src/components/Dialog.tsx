@@ -5,7 +5,7 @@ import Dialog from '@mui/material/Dialog';
 import CodeBlock from '@theme/CodeBlock';
 import { Button, CircularProgress, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
 import './style.css';
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 
 function Dialog1() {
@@ -22,6 +22,13 @@ function Dialog1() {
   const history = useHistory();
 
   const handleClickOpen = () => {
+    if (typeof window !== 'undefined') {
+      if(window.localStorage.getItem('key') === "true"){
+        history.push('/docs/introduction');
+      }
+    }
+
+  
     setOpen(true);
   };
 
@@ -34,17 +41,20 @@ function Dialog1() {
     setLoading(true);
 
     try {
-      const response = await fetch('https://backend.test.initz.run/submit-form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(form),
-      });
+      // const response = await fetch('https://backend.test.initz.run/submit-form', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(form),
+      // });
 
-      if (response.ok) {
+      // if (response.ok) {
         setLoading(false);
         console.log('Form submitted successfully');
+        if (typeof window !== 'undefined') {
+          window.localStorage.setItem('key',"true");
+      //  }
         handleClose();
         history.push('/docs/introduction');
 
@@ -66,7 +76,7 @@ function Dialog1() {
   return (
     <>
       {/* This is the button/link that should open the dialog */}
-      <Button onClick={handleClickOpen} sx={{backgroundColor: "primary"}}>Explore Documentation</Button>
+      <p className="hero__button button button--primary" onClick={handleClickOpen}>Explore Documentation</p>
       <Dialog open={open} onClose={handleClose}>
         <div className="form-container">
           <div className="header">
