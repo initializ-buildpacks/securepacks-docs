@@ -292,6 +292,13 @@
   justify-content: end;
   
 }
+.blog{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  height: 100%;
+  
+}
 .info{
   width: 50%;
 }
@@ -302,6 +309,9 @@
 }
 .video__player{
   width: 80%;
+}
+.blog_video{
+  width: 100%;
 }
 .video_points{
   display: flex;
