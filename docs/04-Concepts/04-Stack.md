@@ -22,3 +22,10 @@ SLSA mandates rigorous adherence to best practices, encompassing vulnerability s
 Moreover, SLSA integrates seamlessly with tools like Grype and Software Bill of Materials (SBOM), enabling comprehensive vulnerability analysis and supply chain visibility. This holistic approach empowers organizations to make informed decisions regarding the security and provenance of container images. 
 
 In essence, SLSA serves as a beacon of trust in the turbulent seas of containerization, fostering resilience and confidence in the face of evolving threats. 
+
+### What stack contains?
+A stack consists of two images:
+ - `build image`: the environment in which your app is built
+ - `run image`: the OS layer on which your app runs
+
+To learn more about the concept of stacks, see [buildpacks.io](https://buildpacks.io/docs/for-app-developers/concepts/base-images/stack/).

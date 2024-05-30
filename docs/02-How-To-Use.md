@@ -30,18 +30,23 @@ Execute the following commands in your shell to clone and build a simple go app:
 1.  Clone the samples repository: 
 
 ```
-git clone https://github.com/initializ-buildpacks/Securepack/samples
+git clone https://github.com/initializ-buildpacks/samples
 ```
 
-2. Navigate to the Java apps sub-directory: 
+2. Navigate to the go apps sub-directory: 
 ```
 cd samples/go
 ```
 
-3. Build the app using pack: 
+3. Choose any sample go application: 
+```
+cd <GO APPLICATION DIRECTORY NAME>
+```
+
+4. Build the app using pack: 
 
 ```
-pack build my-app --builder initializbuildpacks/go-securepack
+pack build my-app --builder initializbuildpacks/securepacks
 
 ```
 
