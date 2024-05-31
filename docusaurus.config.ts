@@ -75,11 +75,11 @@ const config: Config = {
       //     label: 'Tutorial',
       //   },
         {to: '/blog', label: 'Blog', position: 'right'},
-        // {
-        //   href: 'https://github.com/initializ-buildpacks/go',
-        //   label: 'GitHub',
-        //   position: 'right',
-        // },
+        {
+          href: 'https://github.com/initializ-buildpacks/securepacks',
+          label: 'GitHub',
+          position: 'right',
+        },
       ],
     },
     footer: {
@@ -97,18 +97,12 @@ const config: Config = {
         {
           title: 'Community',
           items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
+         
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: 'https://discord.gg/kdapuYcc',
             },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
-            },
+           
           ],
         },
         {
@@ -120,7 +114,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/initializ-buildpacks/go',
+              href: 'https://github.com/initializ-buildpacks/securepacks',
             },
           ],
         },

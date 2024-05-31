@@ -41,20 +41,20 @@ function Dialog1() {
     setLoading(true);
 
     try {
-      // const response = await fetch('https://backend.test.initz.run/submit-form', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(form),
-      // });
+      const response = await fetch('https://backend.test.initz.run/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
 
-      // if (response.ok) {
+      if (response.ok) {
         setLoading(false);
         console.log('Form submitted successfully');
         if (typeof window !== 'undefined') {
           window.localStorage.setItem('key',"true");
-      //  }
+       }
         handleClose();
         history.push('/docs/introduction');
 
@@ -86,7 +86,11 @@ function Dialog1() {
           <form onSubmit={handleSubmit}>
             <div className="input-group">
               <label>Name *</label>
-              <input name="name" value={form.name} onChange={handleChange} placeholder="Enter your name" required />
+              <input name="name"
+               value={form.name} 
+               onChange={handleChange} 
+               placeholder="Enter your name" required
+               style={{backgroundColor:"white"}} />
             </div>
             <div className="input-group">
               <label htmlFor="email">Email</label>
@@ -96,6 +100,7 @@ function Dialog1() {
                 onChange={handleChange}
                 placeholder="Enter your email"
                 type="email"
+                style={{backgroundColor:"white"}}
               />
             </div>
             <div style={{ marginBottom: '0.5rem' }}>
@@ -109,10 +114,11 @@ function Dialog1() {
               >
                 Source *
               </label>
-              <select name="source" value={form.source} onChange={handleChange} required className="custom-select">
-                <option value="">Select an option</option>
+              <select name="source" value={form.source} onChange={handleChange} required className="custom-select" style={{backgroundColor:"white", color:"black", border:"1px #ccc solid", height:'45px'}}>
+                <option value="" style={{color:'gray'}}>Select an option</option>
                 <option value="google">Google</option>
-                <option value="friend">Friend</option>
+                <option value="friend">Linkedin</option>
+                <option value="friend">Discord</option>
                 <option value="other">Other</option>
               </select>
             </div>

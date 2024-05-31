@@ -10,7 +10,7 @@ const BlogVideo = () => {
     <div className='blog'>
     <video
       className='blog_video'
-      src="https://collegemanage.s3.ap-south-1.amazonaws.com/812117/contract/securepacks---Whiteboard%20%281%29.mp4"
+      src='https://s3.amazonaws.com/develop.securepacks.docs/videos/securepacks---Whiteboard+(1).mp4'
       autoPlay
       muted  // Added muted attribute
       playsInline
