@@ -1,3 +1,4 @@
+
 ---
 title: "How to Use"
 description: "this is hello"
@@ -73,6 +74,7 @@ You should see the following output:
 "Initializ-Securepacks"
 ```
 ## LET'S TRY
+import WorkFlow from '@site/src/components/workflow'
 
 
 <details>
@@ -80,6 +82,8 @@ You should see the following output:
 
 Visit
  here [`Build Go/Nodejs OCI from securpack`](https://github.com/initializ-buildpacks/samples/actions/workflows/try-securepack.yml)
+
+ <WorkFlow/>
 
   and provide appropiate details.
 
