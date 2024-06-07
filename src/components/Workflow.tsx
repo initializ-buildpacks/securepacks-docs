@@ -1,86 +1,136 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { io, Socket } from 'socket.io-client';
 
-interface WorkflowStatus {
-  id: string;
-  status: string;
+interface TriggerWorkflowResponse {
+  message: string;
+  workflowId: string;
 }
 
-const App: React.FC = () => {
+interface WorkflowStatusResponse {
+  status: string;
+  conclusion: string;
+  // Add other properties you want to display
+}
+
+const WorkflowComponent: React.FC = () => {
   const [imageName, setImageName] = useState<string>('');
   const [repoUrl, setRepoUrl] = useState<string>('');
   const [desiredDirectory, setDesiredDirectory] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
-  const [workflowRunId, setWorkflowRunId] = useState<string>('');
-  const [workflowStatus, setWorkflowStatus] = useState<string>('');
-  const [socket, setSocket] = useState<Socket | null>(null);
+  const [triggerResponse, setTriggerResponse] = useState<string>('');
+  const [workflowId, setWorkflowId] = useState<string>('');
+  const [workflowStatus, setWorkflowStatus] = useState<WorkflowStatusResponse | null>(null);
 
-  useEffect(() => {
-    const newSocket = io('http://localhost:3001'); // Adjust the URL if needed
-    setSocket(newSocket);
+ 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    newSocket.on('workflowStatus', (data: WorkflowStatus) => {
-      setWorkflowRunId(data.id);
-      setWorkflowStatus(data.status);
-    });
+  const handleTriggerWorkflow = async () => {
+    // Validate image name and repo URL
+    if (!imageName || !repoUrl) {
+      alert('Image name and repo URL are required.');
+      return;
+    }
 
-    return () => {
-      newSocket.close();
-    };
-  }, []);
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3001/trigger-workflow', {
+      const response = await axios.post<TriggerWorkflowResponse>('https://workflow.stg.initz.run/trigger-workflow', {
         imageName,
         repoUrl,
         desiredDirectory,
       });
+      setTriggerResponse(response.data.message);
 
-      setMessage(response.data.message);
+      // Wait for 1 second to fetch the latest workflow run ID
+      setTimeout(fetchLatestWorkflowId, 4000);
     } catch (error) {
-      setMessage('Failed to trigger GitHub Action.');
-      console.error('Error:', error);
+      console.error('Error triggering workflow:', error);
+      setTriggerResponse('Failed to trigger workflow.');
+    } finally {
+      setIsLoading(false);
     }
+  };
+
+  const fetchLatestWorkflowId = async () => {
+    try {
+      const response = await axios.get('https://workflow.stg.initz.run/latest-workflow-id');
+      const newWorkflowId = response.data.workflowId;
+      setWorkflowId(newWorkflowId);
+
+      // Start polling for workflow status every 10 seconds
+      startPollingWorkflowStatus(newWorkflowId);
+    } catch (error) {
+      console.error('Error fetching latest workflow ID:', error);
+    }
+  };
+
+  const startPollingWorkflowStatus = (workflowId: string) => {
+    const intervalId = setInterval(async () => {
+      try {
+        const response = await axios.get<WorkflowStatusResponse>(`https://workflow.stg.initz.run/workflow-status`, {
+          params: { run_id: workflowId },
+        });
+
+        setWorkflowStatus(response.data);
+        console.log('Workflow status:', response.data);
+
+        if (response.data.status === 'completed' || response.data.status === 'failed') {
+          clearInterval(intervalId);
+        }
+      } catch (error) {
+        console.error('Error getting workflow status:', error);
+      }
+    }, 10000); // Poll every 10 seconds
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Image Name"
-          value={imageName}
-          onChange={(e) => setImageName(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Repo URL"
-          value={repoUrl}
-          onChange={(e) => setRepoUrl(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Desired Directory"
-          value={desiredDirectory}
-          onChange={(e) => setDesiredDirectory(e.target.value)}
-        />
-        <button type="submit">Trigger Workflow</button>
+      <h2>Trigger Workflow</h2>
+      <form>
+        <div className='form-container'>
+          <label htmlFor="image-name">Image Name:</label>
+          <input
+            type="text"
+            id="image-name"
+            value={imageName}
+            onChange={(e) => setImageName(e.target.value)}
+            aria-label="Image Name"
+            required
+          />
+          <label htmlFor="repo-url">Repo URL:</label>
+          <input
+            type="text"
+            id="repo-url"
+            value={repoUrl}
+            onChange={(e) => setRepoUrl(e.target.value)}
+            aria-label="Repo URL"
+            required
+          />
+          <label htmlFor="desired-directory">Desired Directory:</label>
+          <input
+            type="text"
+            id="desired-directory"
+            value={desiredDirectory}
+            onChange={(e) => setDesiredDirectory(e.target.value)}
+            aria-label="Desired Directory"
+          />
+          <button type="button" onClick={handleTriggerWorkflow} disabled={isLoading}>
+          {isLoading ? 'Triggering...' : 'Trigger Workflows'}
+        </button>
+          </div>
+        
       </form>
-      <p>{message}</p>
-      {workflowRunId && (
-        <p>Workflow Run ID: {workflowRunId}</p>
-      )}
+
+      
       {workflowStatus && (
-        <p>Workflow Status: {workflowStatus}</p>
+        <div>
+          <h2 className='status'>
+            Status: {workflowStatus.conclusion === 'cancelled' ? 'WorkFlow Cancelled' : workflowStatus.status}
+          </h2>
+          {/* Add other properties of the workflow status as needed */}
+        </div>
       )}
     </div>
   );
 };
 
-export default App;
+export default WorkflowComponent;

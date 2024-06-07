@@ -26,49 +26,109 @@ app.use(cors());
 
 axiosRetry(axios, { retries: 5, retryDelay: exponentialDelay }); // Retry on network errors
 
+
 app.post('/trigger-workflow', async (req, res) => {
   const { imageName, repoUrl, desiredDirectory } = req.body;
   const token = process.env.TOKEN;
   const owner = process.env.OWNER;
   const repo = process.env.REPO;
   const workflow_id = process.env.WORKFLOW_ID;
+  let latestId=0;
 
   try {
-    const triggerResponse = await axios({
-      method: 'post',
-      url: `https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflow_id}/dispatches`,
+    // Trigger the workflow
+    await axios.post(`https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflow_id}/dispatches`, {
+      ref: 'main', // Assuming you're triggering the workflow on the main branch
+      inputs: {
+        image_name: imageName,
+        repo_url: repoUrl,
+        desired_directory: desiredDirectory
+      }
+    }, {
       headers: {
         'Authorization': `token ${token}`,
         'Accept': 'application/vnd.github.v3+json'
-      },
-      data: {
-        ref: 'main',
-        inputs: {
-          image_name: imageName,
-          repo_url: repoUrl,
-          desired_directory: desiredDirectory
-        }
       }
     });
 
-    console.log('Workflow triggered:', triggerResponse.data);
+    console.log('GitHub Action triggered successfully!');
 
-    // Send immediate response
-    res.json({ message: 'GitHub Action triggered successfully!' });
+    // Delay for 5 seconds before fetching the latest workflow run ID
+    setTimeout(async () => {
+      try {
+        // Query the workflow runs to find the latest one triggered by your action
+        const workflowRunsResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/actions/runs`, {
+          headers: {
+            'Authorization': `token ${token}`,
+            'Accept': 'application/vnd.github.v3+json'
+          },
+          params: {
+            branch: 'main', // Filter by branch name
+            per_page: 1,
+            page: 1
+          }
+        });
+
+        // Extract the ID of the latest workflow run
+        const latestWorkflowRunId = workflowRunsResponse.data.workflow_runs[0].id;
+        console.log('Latest workflow run ID:', latestWorkflowRunId);
+        latestId=latestWorkflowRunId;
+      } catch (error) {
+        console.error('Error fetching latest workflow run:', error.response ? error.response.data : error.message);
+      }
+    }, 5000); // 5000 milliseconds = 5 seconds
+
+    res.json({ message: 'GitHub Action triggered successfully!',latestWorkflowRunId:latestId });
   } catch (error) {
     console.error('Error triggering GitHub Action:', error.response ? error.response.data : error.message);
     res.status(500).json({ error: 'Failed to trigger GitHub Action.' });
   }
 });
 
-app.post('/workflow-status', (req, res) => {
-  const { run_id, status } = req.body;
 
-  // Emit the status to connected clients
-  io.emit('workflowStatus', { id: run_id, status });
 
-  res.sendStatus(200);
+
+
+
+app.get('/workflow-status', async (req, res) => {
+  const token = process.env.TOKEN;
+  const owner = process.env.OWNER;
+  const repo = process.env.REPO;
+
+  try {
+    // Query the workflow runs to find the latest one triggered
+    const workflowRunsResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/actions/runs`, {
+      headers: {
+        'Authorization': `token ${token}`,
+        'Accept': 'application/vnd.github.v3+json'
+      },
+      params: {
+        branch: 'main', // Filter by branch name
+        per_page: 1,
+        page: 1
+      }
+    });
+
+    // Extract the ID of the latest workflow run
+    const latestWorkflowRunId = workflowRunsResponse.data.workflow_runs[0].id;
+    console.log('Latest workflow run ID:', latestWorkflowRunId);
+
+    // Fetch the status of the latest workflow run
+    const response = await axios.get(`https://api.github.com/repos/${owner}/${repo}/actions/runs/${latestWorkflowRunId}`, {
+      headers: {
+        'Authorization': `token ${token}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+
+    console.log('Workflow status fetched:', response.data);
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error fetching workflow status:', error.response ? error.response.data : error.message);
+    res.status(500).json({ error: 'Failed to fetch workflow status.' });
+  }
 });
+
 
 server.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
