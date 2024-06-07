@@ -1,9 +1,3 @@
-
----
-title: "How to Use"
-description: "this is hello"
-
----
 How to Use
 =======================
 ### Getting Started with Securepacks 
