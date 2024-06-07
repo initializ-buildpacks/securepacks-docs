@@ -74,7 +74,7 @@ You should see the following output:
 "Initializ-Securepacks"
 ```
 ## LET'S TRY
-import WorkFlow from '@site/src/components/workflow'
+import WorkFlow from '@site/src/components/Workflow'
 
 
 <details>
@@ -99,6 +99,6 @@ docker pull naveen871/< Desired name for the Docker image >
 
 ###  Taking it Further 
 
-With pack, you can effortlessly craft OCI images that are runnable nearly anywhere. Feel free to deploy your newfound image to your preferred cloud platform! 
+With pack, you can effortlessly craft OCI images that are runnable anywhere. Feel free to deploy your newfound image to your preferred cloud platform! 
 
 Let's build something great together with Securepacks. Happy coding! 🚀 
