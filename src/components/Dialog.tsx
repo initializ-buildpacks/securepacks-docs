@@ -41,7 +41,7 @@ function Dialog1() {
     setLoading(true);
 
     try {
-      const response = await fetch('https://docsbackend.test.initz.run/submit-form', {
+      const response = await fetch('https://backend.test.initz.run/submit-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
