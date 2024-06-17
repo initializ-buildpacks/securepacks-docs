@@ -3,7 +3,9 @@
     margin: auto;
     padding: 6%;
 }
-
+.forms{
+    margin-bottom: 20px;
+}
 .header {
     text-align: center;
 }

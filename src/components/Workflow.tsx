@@ -86,6 +86,7 @@ const WorkflowComponent: React.FC = () => {
     <div>
       <h2>Trigger Workflow</h2>
       <form>
+        <div className='forms'>
         <div className='form-container'>
           <label htmlFor="image-name">Image Name:</label>
           <input
@@ -118,13 +119,12 @@ const WorkflowComponent: React.FC = () => {
         </button>
           </div>
         
+      </div>
       </form>
-
-      
       {workflowStatus && (
         <div>
           <h2 className='status'>
-            Status: {workflowStatus.conclusion === 'cancelled' ? 'WorkFlow Cancelled' : workflowStatus.status}
+            Status: {workflowStatus.conclusion === 'cancelled' ? 'WorkFlow Cancelled' : workflowStatus.conclusion === 'failure' ? 'WorkFlow Failed' : workflowStatus.conclusion === 'success' ? 'WorkFlow Completed' : 'WorkFlow In Progress'}
           </h2>
           {/* Add other properties of the workflow status as needed */}
         </div>
