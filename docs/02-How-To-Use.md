@@ -74,7 +74,7 @@ You should see the following output:
 "Initializ-Securepacks"
 ```
 ## LET'S TRY
-import WorkFlow from '@site/src/components/workflow'
+import WorkFlow from '@site/src/components/Workflow'
 
 
 <details>
