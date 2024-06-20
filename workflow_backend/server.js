@@ -14,12 +14,6 @@ const app = express();
 const port = 3001;
 
 const server = http.createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: 'http://localhost:3000', // Allow requests from this origin
-    methods: ['GET', 'POST'],
-  },
-});
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -88,41 +82,50 @@ app.post('/trigger-workflow', async (req, res) => {
 
 
 
-
-
-app.get('/workflow-status', async (req, res) => {
+app.get('/latest-workflow-id', async (req, res) => {
   const token = process.env.TOKEN;
   const owner = process.env.OWNER;
   const repo = process.env.REPO;
-
+  const workflow_id = process.env.WORKFLOW_ID;
   try {
-    // Query the workflow runs to find the latest one triggered
     const workflowRunsResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/actions/runs`, {
       headers: {
         'Authorization': `token ${token}`,
         'Accept': 'application/vnd.github.v3+json'
       },
       params: {
-        branch: 'main', // Filter by branch name
+        branch: 'main',
         per_page: 1,
         page: 1
       }
     });
 
-    // Extract the ID of the latest workflow run
     const latestWorkflowRunId = workflowRunsResponse.data.workflow_runs[0].id;
-    console.log('Latest workflow run ID:', latestWorkflowRunId);
+    res.json({ workflowId: latestWorkflowRunId });
+  } catch (error) {
+    console.error('Error fetching latest workflow ID:', error.response ? error.response.data : error.message);
+    res.status(500).json({ error: 'Failed to fetch latest workflow ID.' });
+  }
+});
 
-    // Fetch the status of the latest workflow run
-    const response = await axios.get(`https://api.github.com/repos/${owner}/${repo}/actions/runs/${latestWorkflowRunId}`, {
+app.get('/workflow-status', async (req, res) => {
+  const runId = req.query.run_id;
+  const token = process.env.TOKEN;
+  const owner = process.env.OWNER;
+  const repo = process.env.REPO;
+
+  try {
+    const response = await axios({
+      method: 'get',
+      url: `https://api.github.com/repos/${owner}/${repo}/actions/runs/${runId}`,
       headers: {
         'Authorization': `token ${token}`,
         'Accept': 'application/vnd.github.v3+json'
       }
     });
 
-    console.log('Workflow status fetched:', response.data);
     res.json(response.data);
+    console.log('Workflow status fetched:', response.data);
   } catch (error) {
     console.error('Error fetching workflow status:', error.response ? error.response.data : error.message);
     res.status(500).json({ error: 'Failed to fetch workflow status.' });

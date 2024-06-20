@@ -74,17 +74,13 @@ import WorkFlow from '@site/src/components/Workflow'
 <details>
   <summary>make your first securepack OCI</summary>
 
-Visit
- here [`Build Go/Nodejs OCI from securpack`](https://github.com/initializ-buildpacks/samples/actions/workflows/try-securepack.yml)
 
  <WorkFlow/>
 
   and provide appropiate details.
 
   After completion of job,you can pull your image , and use it further
-```
-docker pull naveen871/< Desired name for the Docker image > 
-```
+
 </details>
 
 ## test

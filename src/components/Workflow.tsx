@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import CommandCopy from './CommandCopy';
 
 interface TriggerWorkflowResponse {
   message: string;
@@ -19,11 +20,14 @@ const WorkflowComponent: React.FC = () => {
   const [triggerResponse, setTriggerResponse] = useState<string>('');
   const [workflowId, setWorkflowId] = useState<string>('');
   const [workflowStatus, setWorkflowStatus] = useState<WorkflowStatusResponse | null>(null);
+  const [status, setStatus] = useState<string>("");
 
  
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  // console.log(status);
 
   const handleTriggerWorkflow = async () => {
+    setStatus("In Progress");
     // Validate image name and repo URL
     if (!imageName || !repoUrl) {
       alert('Image name and repo URL are required.');
@@ -33,7 +37,7 @@ const WorkflowComponent: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post<TriggerWorkflowResponse>('https://workflow.stg.initz.run/trigger-workflow', {
+      const response = await axios.post<TriggerWorkflowResponse>('https://securepacks-docs-backend.vercel.app/trigger-workflow', {
         imageName,
         repoUrl,
         desiredDirectory,
@@ -52,7 +56,7 @@ const WorkflowComponent: React.FC = () => {
 
   const fetchLatestWorkflowId = async () => {
     try {
-      const response = await axios.get('https://workflow.stg.initz.run/latest-workflow-id');
+      const response = await axios.get('https://securepacks-docs-backend.vercel.app/latest-workflow-id');
       const newWorkflowId = response.data.workflowId;
       setWorkflowId(newWorkflowId);
 
@@ -66,12 +70,17 @@ const WorkflowComponent: React.FC = () => {
   const startPollingWorkflowStatus = (workflowId: string) => {
     const intervalId = setInterval(async () => {
       try {
-        const response = await axios.get<WorkflowStatusResponse>(`https://workflow.stg.initz.run/workflow-status`, {
+        const response = await axios.get<WorkflowStatusResponse>(`https://securepacks-docs-backend.vercel.app/workflow-status`, {
           params: { run_id: workflowId },
         });
 
         setWorkflowStatus(response.data);
         console.log('Workflow status:', response.data);
+
+        
+        if(response.data.conclusion === 'cancelled') setStatus("Cancelled")
+        else if(response.data.conclusion === 'success') setStatus("Completed")
+        // else setStatus("In progress")
 
         if (response.data.status === 'completed' || response.data.status === 'failed') {
           clearInterval(intervalId);
@@ -120,15 +129,16 @@ const WorkflowComponent: React.FC = () => {
         
       </form>
 
-      
-      {workflowStatus && (
-        <div>
-          <h2 className='status'>
-            Status: {workflowStatus.conclusion === 'cancelled' ? 'WorkFlow Cancelled' : workflowStatus.status}
-          </h2>
-          {/* Add other properties of the workflow status as needed */}
-        </div>
-      )}
+
+        <div> { status != "" && (
+          <h2 className='status'>Status: {status}</h2>
+        )}  </div>   
+
+
+          
+        {workflowStatus && workflowStatus.conclusion === 'success' && status != "" && status != "In Progress" && <CommandCopy command={`docker pull naveen871/${imageName}`}/>}
+        
+   
     </div>
   );
 };
