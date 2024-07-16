@@ -77,15 +77,7 @@ import WorkFlow from '@site/src/components/Workflow'
 
  <WorkFlow/>
 
-  and provide appropiate details.
-
-  After completion of job,you can pull your image , and use it further
-
 </details>
-
-## test
-
-
 
 ###  Taking it Further 
 

@@ -15,6 +15,9 @@
 }
 
 .input-group label {
+    display: flex;
+    /* flex-direction: column; */
+    /* background-color: red; */
     font-size: 0.8em;
     margin-bottom: 5px;
 }

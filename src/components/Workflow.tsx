@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import CommandCopy from './CommandCopy';
+import LinearWithValueLabel from './ProgressBar';
 
 interface TriggerWorkflowResponse {
   message: string;
@@ -21,24 +22,45 @@ const WorkflowComponent: React.FC = () => {
   const [workflowId, setWorkflowId] = useState<string>('');
   const [workflowStatus, setWorkflowStatus] = useState<WorkflowStatusResponse | null>(null);
   const [status, setStatus] = useState<string>("");
+  const [progress, setProgress] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [imageNameCli, setImageNameCli] = useState('');
+
 
  
   const [isLoading, setIsLoading] = useState<boolean>(false);
   // console.log(status);
 
   const handleTriggerWorkflow = async () => {
+    setErrorMessage('');
     setStatus("In Progress");
+    setProgress(true)
+
+    const regex = /[^a-zA-Z0-9 -]/g;
+
+    if (regex.test(imageName)) {
+      setErrorMessage('You cannot use special characters');
+      return;
+    }
+
     // Validate image name and repo URL
     if (!imageName || !repoUrl) {
       alert('Image name and repo URL are required.');
       return;
     }
 
+    
+    
     setIsLoading(true);
+    const imageNameModified = imageName.toLowerCase().replace(/\s+/g, '-');
+    setImageNameCli(imageNameModified);
+    // console.log(imageNameModified)
+    // console.log(imageName)
 
     try {
+      
       const response = await axios.post<TriggerWorkflowResponse>('https://securepacks-docs-backend.vercel.app/trigger-workflow', {
-        imageName,
+        imageNameModified,
         repoUrl,
         desiredDirectory,
       });
@@ -93,10 +115,10 @@ const WorkflowComponent: React.FC = () => {
 
   return (
     <div>
-      <h2>Trigger Workflow</h2>
+      <h2>Create your Application's image with SecurePacks</h2>
       <form>
         <div className='form-container'>
-          <label htmlFor="image-name">Image Name:</label>
+          <label htmlFor="image-name">Image Name:
           <input
             type="text"
             id="image-name"
@@ -105,6 +127,9 @@ const WorkflowComponent: React.FC = () => {
             aria-label="Image Name"
             required
           />
+          <span>{errorMessage && <span style={{ color: 'red', fontSize: '10px'  }}>{errorMessage}</span>}</span>
+          </label>
+
           <label htmlFor="repo-url">Repo URL:</label>
           <input
             type="text"
@@ -123,7 +148,7 @@ const WorkflowComponent: React.FC = () => {
             aria-label="Desired Directory"
           />
           <button type="button" onClick={handleTriggerWorkflow} disabled={isLoading}>
-          {isLoading ? 'Triggering...' : 'Trigger Workflows'}
+          {isLoading ? 'Creating...' : 'Create Image'}
         </button>
           </div>
         
@@ -132,11 +157,13 @@ const WorkflowComponent: React.FC = () => {
 
         <div> { status != "" && (
           <h2 className='status'>Status: {status}</h2>
-        )}  </div>   
+        )}  </div>  
 
 
           
-        {workflowStatus && workflowStatus.conclusion === 'success' && status != "" && status != "In Progress" && <CommandCopy command={`docker pull naveen871/${imageName}`}/>}
+        {workflowStatus && workflowStatus.conclusion === 'success' && status != "" && status != "In Progress" && <CommandCopy command={`docker pull naveen871/${imageNameCli}`}/>}
+
+        {/* {progress && <LinearWithValueLabel status={status}/>} */}
         
    
     </div>
