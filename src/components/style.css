@@ -97,3 +97,54 @@
     color: #007bff;
   }
   
+  .cve-body {
+    display: flex;
+    background-color: #c4ebf7;
+    width: 100%;
+    color: black;
+    /* border: 2px solid red; */
+    justify-content: space-between;
+    padding: 10px;
+    border: 2px soild black;
+    border-radius: 6px;
+  }
+
+  .cve-col {
+    display: flex;
+    flex-direction: column;
+    /* border: 2pz solid yellow; */
+  }
+  .cve-col > div:first-child {
+    font-weight: bold;
+  }
+
+  .check-cve-btn {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+
+  }
+
+  .get-cve-btn {
+    color: #007bff;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px;
+    border: 1px solid #007bff;
+    cursor: pointer;
+
+  }
+
+  .btn-conatiner {
+    display: flex;
+    margin: 10px;
+
+  }
+
+
+

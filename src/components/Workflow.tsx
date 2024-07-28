@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import CommandCopy from './CommandCopy';
-import LinearWithValueLabel from './ProgressBar';
+// import LinearWithValueLabel from './ProgressBar';
+import CveCheck from './CveCheck';
+import "./style.css"
 
 interface TriggerWorkflowResponse {
   message: string;
@@ -54,8 +56,6 @@ const WorkflowComponent: React.FC = () => {
     setIsLoading(true);
     const imageNameModified = imageName.toLowerCase().replace(/\s+/g, '-');
     setImageNameCli(imageNameModified);
-    // console.log(imageNameModified)
-    // console.log(imageName)
 
     try {
       
@@ -97,7 +97,7 @@ const WorkflowComponent: React.FC = () => {
         });
 
         setWorkflowStatus(response.data);
-        console.log('Workflow status:', response.data);
+        // console.log('Workflow status:', response.data);
 
         
         if(response.data.conclusion === 'cancelled') setStatus("Cancelled")
@@ -164,7 +164,8 @@ const WorkflowComponent: React.FC = () => {
         {workflowStatus && workflowStatus.conclusion === 'success' && status != "" && status != "In Progress" && <CommandCopy command={`docker pull naveen871/${imageNameCli}`}/>}
 
         {/* {progress && <LinearWithValueLabel status={status}/>} */}
-        
+
+        {workflowStatus && workflowStatus.conclusion === 'success' && <CveCheck imageName={"naveen871/" + imageNameCli}/>}        
    
     </div>
   );
