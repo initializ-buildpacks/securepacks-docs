@@ -99,7 +99,7 @@ const CveCheck = ({imageName}) => {
 
         setCveLoading("loaded")
     
-        // Process response here
+        // Process
       } catch (error) {
         console.error('Error fetching CVE logs:', error);
       }
