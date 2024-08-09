@@ -111,14 +111,20 @@
   font-family: "poppins", sans-serif;
 }
 
-.hero__title{
+.securepacks-logo {
+  height: 220px;
+  width: 200px;
+  /* border: 2px solid red; */
+}
+
+/* .hero__title{
   font-family: "poppins", sans-serif;
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 20px;
   text-align: center;
 
-}
+} */
 
 
 /* main */
@@ -180,7 +186,36 @@
   background-color: #0056b3;
 }
 
+.hero-section {
+  border-left: 4px solid #ce4da4;
+  border-right: 4px solid #ce4da4;
+  border-bottom: 4px solid #ce4da4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 82%;
+  /* margin-top: 2%; */
+  padding-top: 90px;
+  /* background-color: #9C27B0; */
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.hero-heading {
+  font-size: 40px;
+  text-align: center;
+  color: #10ec7e;
 
+}
+
+.hero-para {
+  font-family: "poppins", sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #62e3f0;
+}
 .custom-features {
   background-color: #ffffff;
   padding: 80px 0;
@@ -393,4 +428,239 @@
 
 .form-container button:hover {
   background-color: #0056b3;
+}
+
+/* temps */
+.video-section-b {
+  /* border: 2px solid red; */
+
+}
+.content-container {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+  gap: 3rem;
+
+}
+.up {
+  display: flex;
+  width: 100%;
+  gap: 150px;
+}
+.video-holder {
+  width: 40%;
+  border: 2px solid yellow;
+  background-color: #7B1FA2;
+  
+}
+.content-holder {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  gap: 8px;
+
+}
+.content-heading {
+  color: #7B1FA2;
+  font-weight: 700;
+  font-size: 24px;
+  
+}
+.content-body {
+  font-size: 16px;
+}
+
+.down {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.sub-content-contianer {
+  border: 2px solid #10ec7e;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+
+}
+
+.sub-head-contianer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #10ec7e;
+  gap: 10px;
+
+}
+
+.sub-logo-holder {
+  font-size: 1.6rem;
+
+}
+
+.sub-body-holder {
+  font-size: 1.1rem;
+  font-weight: 600;
+
+}
+
+.sub-body-contianer {
+  padding: 10px;
+  text-align: center;
+ 
+}
+
+
+
+/* Two boxes */
+.twobox-contianer {
+  display: flex;
+  /* border: 2px solid red; */
+  padding-left: 35px;
+  padding-right: 35px;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  width: 100%;
+
+}
+
+[data-theme="light"] .box {
+  background-color: rgb(226, 223, 223);
+  /* border: 2px solid black; */
+}
+
+.box {
+  /* border: 2px solid green; */
+  padding: 20px;
+  width: 47%;
+  background-color: #20252a;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  gap: 1rem;
+
+}
+
+.logo-main-continer {
+  display: flex;
+  /* border: 2px solid green; */
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.twobox-logo-1 {
+  width: 180px;
+  height: 180px;
+
+  border: 2px solid #8A79FF;
+  /* background-color: pink; */
+  border-radius: 10px;
+  padding-bottom: 6px;
+  position: relative;
+  background-color: white; 
+}
+[data-theme="light"] .twobox-logo-1 {
+  background-color: transparent;
+  border: 3px solid #0067C3;
+}
+.secure-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+  /* color: #007bff; */
+
+}
+
+.twobox-logo-2 {
+  width: 180px;
+  border: 2px solid #8A79FF;
+  /* background-color: pink; */
+  border-radius: 10px;
+  padding-bottom: 6px;
+  background-color: white;
+  
+}
+
+[data-theme="light"] .twobox-logo-2 {
+  background-color: transparent;
+  border: 3px solid #0067C3;
+}
+
+.twobox-main-content {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  /* border: 2px solid yellow; */
+  gap: 6px;
+
+}
+
+.twobox-main-content-heading {
+  font-size: larger;
+  font-weight: 700;
+
+}
+
+.twobox-main-content-para {
+  font-size: 16px;
+  color: #7C8993;
+  font-weight: 500;
+
+}
+
+.twobox-subcontent-continer {
+  /* border: 2px solid greenyellow; */
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+}
+.twobox-subcontent {
+  /* border: 2px solid #007bff; */
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+}
+
+[data-theme="light"] .twobox-subcontent-logo-heading {
+  color: black;
+  font-weight: 500;
+}
+
+.twobox-subcontent-logo-heading {
+  display: flex;
+  /* border: 2px solid orange; */
+  gap: 6px;
+  align-items: center;
+  color: #8A79FF;
+  /* gap: 0.2rem; */
+
+}
+[data-theme="light"] .twobox-subcontent-logo {
+  color: #8A79FF;
+}
+.twobox-subcontent-logo {
+  height: 20px;
+  width: 20px;
+
+}
+.twobox-subcontent-heading {
+  font-size: 16px;
+
+}
+
+.twobox-subcontent-para {
+  font-size: 15px;
+  color: #7C8993;
+  margin-left: 1.6rem;
 }

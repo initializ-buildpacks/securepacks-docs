@@ -8,6 +8,7 @@ const config: Config = {
   title: 'Securepacks Documentation',
   tagline: 'Minimum Complexcity, Maximum Security',
   favicon: 'img/logo_new.png',
+  staticDirectories:['public','static'],
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',

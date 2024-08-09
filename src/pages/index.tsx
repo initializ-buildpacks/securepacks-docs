@@ -4,6 +4,17 @@ import Layout from '@theme/Layout';
 import Language from './language';
 import Video from './Video';
 import Dialog1 from '../components/Dialog';
+import Video2 from './Video2';
+import image1 from '@site/static/img/logo.svg'
+
+import { SiPowerautomate } from "react-icons/si";
+import { BsFileEarmarkLock2 } from "react-icons/bs";
+import { GoShieldCheck } from "react-icons/go";
+
+import { GrDocumentUpdate } from "react-icons/gr";
+import { MdSecurityUpdateGood } from "react-icons/md";
+import { MdManageAccounts } from "react-icons/md";
+
 
  
 const HeroSection = () => {
@@ -219,6 +230,88 @@ const BenefitsSection = () => {
     </section>
   );
 };
+
+const TwoBoxes = () => {
+  return (
+    <div className='twobox-contianer'>
+      <div className='box'>
+        <div className='logo-main-continer'>
+          <div className='twobox-logo-1'>
+            <img src='/img/secure_logo.png' className='secure-logo'/>
+          </div>
+          <div className='twobox-main-content'>
+            <div className='twobox-main-content-heading'>Secure at it's Core</div>
+            <div className='twobox-main-content-para'>Securepacks' built-in security features, minimal design, and automated updates offer a robust foundation for your infrastructure's security strategy.</div>
+          </div>
+        </div>
+
+        <div className='twobox-subcontent-continer'>
+          <div className='twobox-subcontent'>
+            <div className='twobox-subcontent-logo-heading'>
+              <SiPowerautomate className='twobox-subcontent-logo'/>
+              <div className='twobox-subcontent-heading'>Security patch automation</div>
+            </div>
+            <div className='twobox-subcontent-para'>Running the latest security patches is crucial for eliminating potential vulnerabilities. Securepacks' automated updates ensure this is handled for you.</div>
+          </div>
+
+          <div className='twobox-subcontent'>
+            <div className='twobox-subcontent-logo-heading'>
+              <BsFileEarmarkLock2 className='twobox-subcontent-logo'/>
+              <div className='twobox-subcontent-heading'>Immutable filesystem</div>
+            </div>
+            <div className='twobox-subcontent-para'>With an immutable filesystem partition set to read-only, Securepacks eliminates a significant class of high-impact security vulnerabilities.</div>
+          </div>
+
+          <div className='twobox-subcontent'>
+            <div className='twobox-subcontent-logo-heading'>
+              <GoShieldCheck className='twobox-subcontent-logo'/>
+              <div className='twobox-subcontent-heading'>Minimal attack surface</div>
+            </div>
+            <div className='twobox-subcontent-para'>Securpacks include only the essential components needed to run containers. By minimizing both the size and complexity of the operating system, eventually reduce the attack surface.</div>
+          </div>
+        </div>
+      </div>
+
+      <div className='box'>
+        <div className='logo-main-continer'>
+          <img className='twobox-logo-2' src="/img/automated_updates_logo.png"/>
+          <div className='twobox-main-content'>
+            <div className='twobox-main-content-heading'>Automated Updates</div>
+            <div className='twobox-main-content-para'>With Securepacks, you can ensure you're always using the most stable, secure, and up-to-date version thanks to its automated, atomic update feature.</div>
+          </div>
+        </div>
+
+        <div className='twobox-subcontent-continer'>
+          <div className='twobox-subcontent'>
+            <div className='twobox-subcontent-logo-heading'>
+              <GrDocumentUpdate className='twobox-subcontent-logo'/>
+              <div className='twobox-subcontent-heading'>Self-driving updates</div>
+            </div>
+            <div className='twobox-subcontent-para'>Securpacks are updated regularly through our CI/CD pipeline, ensuring safe, secure, and automated system updates while minimizing the attack surface.</div>
+          </div>
+
+          <div className='twobox-subcontent'>
+            <div className='twobox-subcontent-logo-heading'>
+              <MdSecurityUpdateGood className='twobox-subcontent-logo'/>
+              <div className='twobox-subcontent-heading'>Always up-to-date</div>
+            </div>
+            <div className='twobox-subcontent-para'>With Securepacks' automated updates, you'll always be running the most stable, secure, and feature-rich version of the OS.</div>
+          </div>
+
+          <div className='twobox-subcontent'>
+            <div className='twobox-subcontent-logo-heading'>
+              <MdManageAccounts className='twobox-subcontent-logo'/>
+              <div className='twobox-subcontent-heading'>Managed updates</div>
+            </div>
+            <div className='twobox-subcontent-para'>Securepacks ensures your containers are always protected with the latest security patches through its seamless and automated update management.</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  )
+}
  
 const HomePage = () => {
   return (
@@ -226,11 +319,14 @@ const HomePage = () => {
       <main>
         <HeroSection />
         {/* <Language/> */}
+        
         <div className='featur'>
         <FeaturesSection />
         <BenefitsSection />
         </div>
+        <TwoBoxes/>
         <Video/>
+        {/* <Video2/> */}
       </main>
     </div>
   );
