@@ -22,7 +22,7 @@ const HeroSection = () => {
     <section id="hero" className="hero">
       <div className="hero__content">
         <h1 style={{fontFamily:'"poppins",sans-serif'}} className='head'>Secure Your Deployments with SecurePack</h1>
-        <p className="head_title mb-5">SecurePack is a powerful buildpack solution that enhances the security and reliability of your application deployments.</p>
+        <p className="head_title">SecurePack is a powerful buildpack solution that enhances the security and reliability of your application deployments.</p>
         <Dialog1/>
       </div>
     </section>
@@ -233,19 +233,19 @@ const BenefitsSection = () => {
 
 const TwoBoxes = () => {
   return (
-    <div className='flex flex-col md:items-start items-center gap-3 md:flex-row md:justify-between w-full p-2 mb-5'>
-      <div className='rounded-2xl p-5 w-[80%] md:w-[45%] box-background'> {/*box*/}
-        <div className='flex gap-5 flex-col md:flex-row items-center md:items-start'>
+    <div className='twobox-contianer'>
+      <div className='box'>
+        <div className='logo-main-continer'>
           <div className='twobox-logo-1'>
             <img src='/img/secure_logo.png' className='secure-logo'/>
           </div>
-          <div className='flex flex-col md:w-[60%]'>
+          <div className='twobox-main-content'>
             <div className='twobox-main-content-heading'>Secure at it's Core</div>
             <div className='twobox-main-content-para'>Securepacks' built-in security features, minimal design, and automated updates offer a robust foundation for your infrastructure's security strategy.</div>
           </div>
         </div>
 
-        <div className='flex flex-col mt-2'>
+        <div className='twobox-subcontent-continer'>
           <div className='twobox-subcontent'>
             <div className='twobox-subcontent-logo-heading'>
               <SiPowerautomate className='twobox-subcontent-logo'/>
@@ -272,16 +272,16 @@ const TwoBoxes = () => {
         </div>
       </div>
 
-      <div className='rounded-2xl p-5 w-[80%] md:w-[45%] box-background'>
-        <div className='flex gap-5 flex-col md:flex-row items-center md:items-start'>
-          <img className='twobox-logo-2 h-[10rem]' src="/img/automated_updates_logo.png"/>
-          <div className='flex flex-col md:w-[60%]'>
+      <div className='box'>
+        <div className='logo-main-continer'>
+          <img className='twobox-logo-2' src="/img/automated_updates_logo.png"/>
+          <div className='twobox-main-content'>
             <div className='twobox-main-content-heading'>Automated Updates</div>
             <div className='twobox-main-content-para'>With Securepacks, you can ensure you're always using the most stable, secure, and up-to-date version thanks to its automated, atomic update feature.</div>
           </div>
         </div>
 
-        <div className='flex flex-col mt-3 gap-4 '>
+        <div className='twobox-subcontent-continer'>
           <div className='twobox-subcontent'>
             <div className='twobox-subcontent-logo-heading'>
               <GrDocumentUpdate className='twobox-subcontent-logo'/>
