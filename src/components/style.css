@@ -29,6 +29,11 @@
     padding: 0 10px;
 }
 
+.input-field {
+  background-color: white;
+  color: black;
+}
+
 .submit-btn {
     display: flex;
     justify-content: flex-end;

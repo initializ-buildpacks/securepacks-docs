@@ -115,13 +115,14 @@ const WorkflowComponent: React.FC = () => {
 
   return (
     <div>
-      <h2>Create your Application's image with SecurePacks</h2>
+      <h2>Build your Application with SecurePacks</h2>
       <form>
         <div className='form-container'>
-          <label htmlFor="image-name">Image Name:
+          <label htmlFor="image-name">Image Name
           <input
             type="text"
             id="image-name"
+            className='input-field'
             value={imageName}
             onChange={(e) => setImageName(e.target.value)}
             aria-label="Image Name"
@@ -130,19 +131,21 @@ const WorkflowComponent: React.FC = () => {
           <span>{errorMessage && <span style={{ color: 'red', fontSize: '10px'  }}>{errorMessage}</span>}</span>
           </label>
 
-          <label htmlFor="repo-url">Repo URL:</label>
+          <label htmlFor="repo-url">Repo URL</label>
           <input
             type="text"
             id="repo-url"
+            className='input-field'
             value={repoUrl}
             onChange={(e) => setRepoUrl(e.target.value)}
             aria-label="Repo URL"
             required
           />
-          <label htmlFor="desired-directory">Desired Directory:</label>
+          <label htmlFor="desired-directory">Desired Directory</label>
           <input
             type="text"
             id="desired-directory"
+            className='input-field'
             value={desiredDirectory}
             onChange={(e) => setDesiredDirectory(e.target.value)}
             aria-label="Desired Directory"
